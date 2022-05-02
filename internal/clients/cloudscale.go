@@ -78,10 +78,9 @@ func TerraformSetupBuilder(version, providerSource, providerVersion string) terr
 		// Deprecated: In shared gRPC mode we do not support injecting
 		// credentials via the environment variables. You should specify
 		// credentials via the Terraform main.tf.json instead.
-		/*ps.Env = []string{
-			fmt.Sprintf("%s=%s", "HASHICUPS_USERNAME", cloudscaleCreds["username"]),
-			fmt.Sprintf("%s=%s", "HASHICUPS_PASSWORD", cloudscaleCreds["password"]),
-		}*/
+		ps.Env = []string{
+			fmt.Sprintf("%s=%s", "CLOUDSCALE_TOKEN", cloudscaleCreds["cloudscale_token"]),
+		}
 		// set credentials in Terraform provider configuration
 		/*ps.Configuration = map[string]interface{}{
 			"username": cloudscaleCreds["username"],
