@@ -28,6 +28,7 @@ import (
 	"github.com/crossplane/terrajet/pkg/terraform"
 
 	"github.com/crossplane-contrib/provider-jet-cloudscale/apis/v1alpha1"
+	"fmt"
 )
 
 const (
