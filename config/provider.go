@@ -23,12 +23,12 @@ import (
 	tjconfig "github.com/crossplane/terrajet/pkg/config"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 
-	"github.com/crossplane-contrib/provider-jet-cloudscale/config/cloudscale_objects_user"
+	"github.com/vshn/appcat-service-cloudscale/config/cloudscale_objects_user"
 )
 
 const (
 	resourcePrefix = "cloudscale"
-	modulePath     = "github.com/crossplane-contrib/provider-jet-cloudscale"
+	modulePath     = "github.com/vshn/appcat-service-cloudscale"
 )
 
 //go:embed schema.json
