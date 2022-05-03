@@ -25,7 +25,7 @@ import (
 
 	"github.com/crossplane/terrajet/pkg/pipeline"
 
-	"github.com/vshn/appcat-service-cloudscale/config"
+	"github.com/vshn/provider-jet-cloudscale/config"
 )
 
 func main() {

@@ -27,7 +27,7 @@ import (
 
 	"github.com/crossplane/terrajet/pkg/terraform"
 
-	"github.com/vshn/appcat-service-cloudscale/apis/v1alpha1"
+	"github.com/vshn/provider-jet-cloudscale/apis/v1alpha1"
 	"fmt"
 )
 

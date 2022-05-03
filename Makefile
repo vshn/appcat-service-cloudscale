@@ -1,7 +1,7 @@
 # ====================================================================================
 # Setup Project
 
-PROJECT_NAME := appcat-service-cloudscale
+PROJECT_NAME := provider-jet-cloudscale
 PROJECT_REPO := github.com/vshn/$(PROJECT_NAME)
 
 export TERRAFORM_VERSION := 1.1.6
