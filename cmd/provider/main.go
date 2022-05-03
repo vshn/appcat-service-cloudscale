@@ -36,12 +36,12 @@ import (
 	ctrl "sigs.k8s.io/controller-runtime"
 	"sigs.k8s.io/controller-runtime/pkg/log/zap"
 
-	"github.com/crossplane-contrib/provider-jet-cloudscale/apis"
-	"github.com/crossplane-contrib/provider-jet-cloudscale/apis/v1alpha1"
-	"github.com/crossplane-contrib/provider-jet-cloudscale/config"
-	"github.com/crossplane-contrib/provider-jet-cloudscale/internal/clients"
-	"github.com/crossplane-contrib/provider-jet-cloudscale/internal/controller"
-	"github.com/crossplane-contrib/provider-jet-cloudscale/internal/features"
+	"github.com/vshn/appcat-service-cloudscale/apis"
+	"github.com/vshn/appcat-service-cloudscale/apis/v1alpha1"
+	"github.com/vshn/appcat-service-cloudscale/config"
+	"github.com/vshn/appcat-service-cloudscale/internal/clients"
+	"github.com/vshn/appcat-service-cloudscale/internal/controller"
+	"github.com/vshn/appcat-service-cloudscale/internal/features"
 )
 
 func main() {

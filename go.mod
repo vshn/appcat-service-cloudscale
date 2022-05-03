@@ -1,4 +1,4 @@
-module github.com/crossplane-contrib/provider-jet-cloudscale
+module github.com/vshn/appcat-service-cloudscale
 
 go 1.17
 
