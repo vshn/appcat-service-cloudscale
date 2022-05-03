@@ -1,4 +1,4 @@
-module github.com/vshn/appcat-service-cloudscale
+module github.com/vshn/provider-jet-cloudscale
 
 go 1.17
 
