@@ -1,3 +1,6 @@
 [submodule "build"]
 	path = build
 	url = https://github.com/upbound/build.git
+[submodule "kindev"]
+	path = kindev
+	url = https://github.com/vshn/kindev.git
