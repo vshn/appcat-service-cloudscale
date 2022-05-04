@@ -8,12 +8,12 @@ Cloudscale API.
 ## Getting Started
 
 Install the provider by using the following command after changing the image tag
-to the [latest release](https://github.com/crossplane-contrib/provider-jet-cloudscale/releases):
+to the [latest release](https://github.com/vshn/provider-jet-cloudscale/releases):
 ```
 kubectl crossplane install provider crossplane/provider-jet-cloudscale:v0.1.0
 ```
 
-You can see the API reference [here](https://doc.crds.dev/github.com/crossplane-contrib/provider-jet-cloudscale).
+You can see the API reference [here](https://doc.crds.dev/github.com/vshn/provider-jet-cloudscale).
 
 ## Developing
 
@@ -43,7 +43,7 @@ make build
 ## Report a Bug
 
 For filing bugs, suggesting improvements, or requesting new features, please
-open an [issue](https://github.com/crossplane-contrib/provider-jet-cloudscale/issues).
+open an [issue](https://github.com/vshn/provider-jet-cloudscale/issues).
 
 ## Contact
 
