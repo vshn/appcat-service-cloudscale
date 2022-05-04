@@ -19,6 +19,10 @@ PLATFORMS ?= linux_amd64 linux_arm64
 # "include" was used, the make command would fail and refuse
 # to run a target until the include commands succeeded.
 -include build/makelib/common.mk
+# Optional Documentation module.
+-include docs/antora-preview.mk docs/antora-build.mk
+# General variables
+include Makefile.vars.mk
 
 # ====================================================================================
 # Setup Output

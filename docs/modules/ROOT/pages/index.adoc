@@ -1,0 +1,12 @@
+// TODO: Edit start page
+
+= {page-component-name}
+
+[discrete]
+== Introduction
+
+The https://cloudscale.ch[Cloudscale,window=_blank] provider makes various Cloudscale features available via Crossplane.
+
+Available functionality:
+
+* Create Objects ("S3") users
