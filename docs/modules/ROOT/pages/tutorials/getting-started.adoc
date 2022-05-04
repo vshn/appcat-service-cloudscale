@@ -1,0 +1,79 @@
+= Getting Started
+
+This page describes how to get a Cloudscale user and consume it in an application.
+
+Target Audience::
+Service Consumer (Developer)
+
+== Prerequisites
+
+* `kubectl`
+* K8s cluster with Crossplane and provider-jet-cloudscale installed and configured
+* `KUBECONFIG` environment variable pointing to a kubeconfig file for said cluster (or equivalent configuration)
+
+== Steps
+
+. If necessary create a new namespace `my-project`.
++
+[source,bash]
+----
+kubectl create namespace my-project
+----
+
+. Create the following `User` resource in a file:
++
+.demouser.yaml
+[source,yaml]
+----
+apiVersion: objects.cloudscale.jet.crossplane.io/v1alpha1
+kind: User
+metadata:
+  name: demouser <1>
+  namespace: my-project <2>
+spec:
+  forProvider:
+    displayName: DemoUser <3>
+  providerConfigRef:
+    name: default
+----
+<1> Name of the Kubernetes resource
+<2> Create the resource in your project namespace
+<3> Name of the Cloudscale user to be created
+
+. Apply the resource:
++
+[source,bash]
+----
+kubectl apply -f demouser.yaml
+----
+
+. Get the credentials from your `User` resource. It may take a few seconds for them to appear.
++
+[source,bash]
+----
+kubectl get User demouser -o json
+----
++
+[source,yaml]
+----
+{
+    "apiVersion": "objects.cloudscale.jet.crossplane.io/v1alpha1",
+    "kind": "User",
+    "metadata": [...]
+    "spec": [...]
+    "status": {
+        "atProvider": {
+            "href": [...]
+            "id": [...]
+            "keys": [
+                {
+                    "accessKey": "ACCESSKEY",
+                    "secretKey": "SecretKey"
+                }
+            ],
+            "userId": [...]
+        },
+    [...]
+----
+
+. Configure the application to use the provided accessKey and secretKey.
