@@ -19,6 +19,7 @@ package clients
 import (
 	"context"
 	"encoding/json"
+	"fmt"
 
 	"github.com/crossplane/crossplane-runtime/pkg/resource"
 	"github.com/pkg/errors"
@@ -26,9 +27,7 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/client"
 
 	"github.com/crossplane/terrajet/pkg/terraform"
-
 	"github.com/vshn/provider-jet-cloudscale/apis/v1alpha1"
-	"fmt"
 )
 
 const (

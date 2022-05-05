@@ -23,7 +23,7 @@ import (
 	tjconfig "github.com/crossplane/terrajet/pkg/config"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 
-	"github.com/vshn/provider-jet-cloudscale/config/cloudscale_objects_user"
+	"github.com/vshn/provider-jet-cloudscale/config/cloudscaleobjectsuser"
 )
 
 const (
@@ -44,11 +44,11 @@ func GetProvider() *tjconfig.Provider {
 	}
 
 	pc := tjconfig.NewProviderWithSchema([]byte(providerSchema), resourcePrefix, modulePath,
-		tjconfig.WithDefaultResourceFn(defaultResourceFn), tjconfig.WithIncludeList([]string{"cloudscale_objects_user$",}))
+		tjconfig.WithDefaultResourceFn(defaultResourceFn), tjconfig.WithIncludeList([]string{"cloudscale_objects_user$"}))
 
 	for _, configure := range []func(provider *tjconfig.Provider){
 		// add custom config functions
-		cloudscale_objects_user.Configure,
+		cloudscaleobjectsuser.Configure,
 	} {
 		configure(pc)
 	}
