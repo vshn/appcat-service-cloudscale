@@ -1,0 +1,9 @@
+apiVersion: objects.cloudscale.jet.crossplane.io/v1alpha1
+kind: User
+metadata:
+  name: demouser
+spec:
+  forProvider:
+    displayName: DemoUser
+  providerConfigRef:
+    name: default

@@ -1,0 +1,49 @@
+name: Build
+
+on:
+  push:
+    tags:
+      - v**
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          submodules: true
+
+      - uses: actions/cache@v3
+        with:
+          path: |
+            ~/.cache/go-build
+            ~/go/pkg/mod
+            .work
+          key: ${{ runner.os }}-go-${{ hashFiles('**/go.sum') }}
+          restore-keys: |
+            ${{ runner.os }}-go-
+
+      - uses: actions/setup-go@v3
+        with:
+          go-version: '1.17'
+
+      - name: Install goimports
+        run: go install golang.org/x/tools/cmd/goimports@latest
+
+      - name: Build
+        run: make build
+
+      - name: Log in to registry
+        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u $ --password-stdin
+
+      - name: Push image
+        run: |
+          CONTROLLER_IMAGE="build-$(echo $HOSTNAME-$PWD | shasum -a 256 | cut -c1-8)/provider-jet-cloudscale-controller-amd64"
+          CROSSPLANE_PKG_IMAGE="build-$(echo $HOSTNAME-$PWD | shasum -a 256 | cut -c1-8)/provider-jet-cloudscale-amd64"
+          CONTROLLER_TAG="ghcr.io/vshn/provider-jet-cloudscale/provider-jet-cloudscale-controller:$GITHUB_REF_NAME"
+          CROSSPLANE_PKG_TAG="ghcr.io/vshn/provider-jet-cloudscale/provider-jet-cloudscale:$GITHUB_REF_NAME"
+          docker tag "$CONTROLLER_IMAGE" "$CONTROLLER_TAG"
+          docker tag "$CROSSPLANE_PKG_IMAGE" "$CROSSPLANE_PKG_TAG"
+          docker images
+          docker push "$CONTROLLER_TAG"
+          docker push "$CROSSPLANE_PKG_TAG"
