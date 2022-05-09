@@ -6,6 +6,6 @@ spec:
   credentials:
     source: Secret
     secretRef:
-      name: example-creds
+      name: provider-jet-cloudscale-secret
       namespace: crossplane-system
       key: credentials
