@@ -4,4 +4,4 @@ metadata:
   name: provider-jet-cloudscale
 spec:
   controller:
-    image: DOCKER_REGISTRY/vshn/provider-jet-cloudscale/provider-jet-cloudscale-controller:VERSION
+    image: DOCKER_REGISTRY/vshn/provider-jet-cloudscale/provider-jet-cloudscale:VERSION
