@@ -1,72 +1,55 @@
 # Terrajet Cloudscale Provider
 
-`provider-jet-cloudscale` is a [Crossplane](https://crossplane.io/) provider that
-is built using [Terrajet](https://github.com/crossplane/terrajet) code
-generation tools and exposes XRM-conformant managed resources for the 
-Cloudscale API.
+`provider-jet-cloudscale` is a [Crossplane](https://crossplane.io/) provider that is built using
+[Terrajet](https://github.com/crossplane/terrajet) code generation tools and exposes XRM-conformant managed resources
+for the Cloudscale API.
 
-## Getting Started
+## Installing the provider
 
-Install the provider by using the following command after changing the image tag
-to the [latest release](https://github.com/vshn/provider-jet-cloudscale/releases):
-```
-kubectl crossplane install provider crossplane/provider-jet-cloudscale:v0.1.0
-```
+Assuming that you have a working Crossplane installation and kubectl is configured for the K8s cluster running your
+Crossplane installation, you can install provider-jet-cloudscale:
 
-You can see the API reference [here](https://doc.crds.dev/github.com/vshn/provider-jet-cloudscale).
+* Generate an API token with write permissions in the [Cloudscale web interface](https://control.cloudscale.ch/)
+* Put the API token into examples/providerconfig/secret.yaml.tmpl
+* Install the secret into K8s:
+  ```console
+  kubectl apply -f examples/providerconfig/secret.yaml.tmpl
+  ```
+* Install the provider configuration into K8s. This tells the provider which secret to use.
+  ```console
+  kubectl apply -f examples/providerconfig/providerconfig.yaml
+  ```
+* Install the provider. This is achieved by installing the "Crossplane package" with the name
+  `provider-jet-cloudscale`, which in turn sets up the controller image `provider-jet-cloudscale-controller` which does
+  the real work. You may need to adjust the version number of the "Crossplane package" first in
+  `examples/providerconfig/install.yaml`.
+  ```console
+  kubectl apply -f examples/providerconfig/install.yaml
+  ```
+* Check if the provider is ready.
+  ```console
+  kubectl get Provider provider-jet-cloudscale
+  ```
+  It should both be 'installed' and 'healthy'. If everything is correct the controller is running as the
+  'provider-jet-cloudscale-...' pod in the crossplane-system namespace and there are some cloudscale-specific CRDs
+  available.
 
-## Developing
+## Using the provider
 
-Run code-generation pipeline:
+Assuming the setup is complete you can now create demo user:
+
 ```console
-go run cmd/generator/main.go "$PWD"
+kubectl apply -f examples/demouser.yaml
 ```
 
-Run against a Kubernetes cluster:
+You should now see a "DemoUser" appear in the Cloudscale web interface.
 
 ```console
-make run
-```
+kubectl delete User demouser
+````
 
-Build, push, and install:
-
-```console
-make all
-```
-
-Build binary:
-
-```console
-make build
-```
-
-## Report a Bug
-
-For filing bugs, suggesting improvements, or requesting new features, please
-open an [issue](https://github.com/vshn/provider-jet-cloudscale/issues).
-
-## Contact
-
-Please use the following to reach members of the community:
-
-* Slack: Join our [slack channel](https://slack.crossplane.io)
-* Forums:
-  [crossplane-dev](https://groups.google.com/forum/#!forum/crossplane-dev)
-* Twitter: [@crossplane_io](https://twitter.com/crossplane_io)
-* Email: [info@crossplane.io](mailto:info@crossplane.io)
-
-## Governance and Owners
-
-provider-jet-cloudscale is run according to the same
-[Governance](https://github.com/crossplane/crossplane/blob/master/GOVERNANCE.md)
-and [Ownership](https://github.com/crossplane/crossplane/blob/master/OWNERS.md)
-structure as the core Crossplane project.
-
-## Code of Conduct
-
-provider-jet-cloudscale adheres to the same [Code of
-Conduct](https://github.com/crossplane/crossplane/blob/master/CODE_OF_CONDUCT.md)
-as the core Crossplane project.
+The "DemoUser" should now disappear from the Cloudscale web interface.
+  
 
 ## Licensing
 
