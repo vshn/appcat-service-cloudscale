@@ -3,4 +3,4 @@ kind: Provider
 metadata:
   name: provider-jet-cloudscale
 spec:
-  package: ghcr.io/vshn/provider-jet-cloudscale/provider-jet-cloudscale:v0.1.4
+  package: ghcr.io/vshn/provider-jet-cloudscale/provider-jet-cloudscale:v0.1.5
