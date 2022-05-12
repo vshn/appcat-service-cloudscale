@@ -7,3 +7,6 @@ spec:
     displayName: DemoUser
   providerConfigRef:
     name: default
+  writeConnectionSecretToRef:
+    name: sample-access-key-secret
+    namespace: crossplane-system
