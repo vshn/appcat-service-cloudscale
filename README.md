@@ -46,10 +46,45 @@ You should now see a "DemoUser" appear in the Cloudscale web interface.
 
 ```console
 kubectl delete User demouser
-````
+```
 
 The "DemoUser" should now disappear from the Cloudscale web interface.
-  
+
+## Developing and testing the provider
+
+The following commands may be useful for developing and testing the provider.
+
+Create a local kubernetes-in-docker test and development environment:
+
+```console
+cd kindev
+make crossplane-setup
+```
+
+Clean up said development environment:
+
+```console
+cd kindev
+make clean
+```
+
+Re-generate CRDs and Go code from the Terraform module:
+
+```console
+make generate
+```
+
+Re-generate the Crossplane package and operator (controller):
+
+```console
+make build
+```
+
+Run the Crossplane operator (controller) directly:
+
+```console
+make run
+```
 
 ## Licensing
 
