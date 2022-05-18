@@ -173,15 +173,6 @@ spec:
                     type: string
                   id:
                     type: string
-                  keys:
-                    items:
-                      properties:
-                        accessKey:
-                          type: string
-                        secretKey:
-                          type: string
-                      type: object
-                    type: array
                   userId:
                     type: string
                 type: object
