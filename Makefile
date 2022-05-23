@@ -7,10 +7,10 @@ PROJECT_REPO := github.com/vshn/$(PROJECT_NAME)
 export TERRAFORM_VERSION := 1.1.6
 
 export TERRAFORM_PROVIDER_SOURCE := cloudscale-ch/cloudscale
-export TERRAFORM_PROVIDER_VERSION := 3.2.0
+export TERRAFORM_PROVIDER_VERSION := 4.0.0
 export TERRAFORM_PROVIDER_DOWNLOAD_NAME := terraform-provider-cloudscale
-export TERRAFORM_PROVIDER_DOWNLOAD_URL_PREFIX := https://releases.hashicorp.com/terraform-provider-cloudscale/3.2.0
-export TERRAFORM_NATIVE_PROVIDER_BINARY := terraform-provider-cloudscale_v3.2.0
+export TERRAFORM_PROVIDER_DOWNLOAD_URL_PREFIX := https://releases.hashicorp.com/terraform-provider-cloudscale/4.0.0
+export TERRAFORM_NATIVE_PROVIDER_BINARY := terraform-provider-cloudscale_v4.0.0
 
 PLATFORMS ?= linux_amd64
 

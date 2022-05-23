@@ -65,6 +65,10 @@ spec:
                 properties:
                   displayName:
                     type: string
+                  tags:
+                    additionalProperties:
+                      type: string
+                    type: object
                 required:
                 - displayName
                 type: object
