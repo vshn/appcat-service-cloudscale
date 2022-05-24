@@ -1,7 +1,7 @@
 # TODO: Adjust project meta
 name: provider-jet-cloudscale
 title: 'Crossplane Provider: Cloudscale'
-version: master
+version: "0.3"
 start_page: ROOT:index.adoc
 nav:
   - modules/ROOT/nav.adoc
