@@ -137,13 +137,6 @@ func (in *UserObservation) DeepCopyInto(out *UserObservation) {
 		*out = new(string)
 		**out = **in
 	}
-	if in.Keys != nil {
-		in, out := &in.Keys, &out.Keys
-		*out = make([]KeysObservation, len(*in))
-		for i := range *in {
-			(*in)[i].DeepCopyInto(&(*out)[i])
-		}
-	}
 	if in.UserID != nil {
 		in, out := &in.UserID, &out.UserID
 		*out = new(string)
@@ -168,6 +161,21 @@ func (in *UserParameters) DeepCopyInto(out *UserParameters) {
 		in, out := &in.DisplayName, &out.DisplayName
 		*out = new(string)
 		**out = **in
+	}
+	if in.Tags != nil {
+		in, out := &in.Tags, &out.Tags
+		*out = make(map[string]*string, len(*in))
+		for key, val := range *in {
+			var outVal *string
+			if val == nil {
+				(*out)[key] = nil
+			} else {
+				in, out := &val, &outVal
+				*out = new(string)
+				**out = **in
+			}
+			(*out)[key] = outVal
+		}
 	}
 }
 

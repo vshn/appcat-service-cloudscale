@@ -39,8 +39,6 @@ type UserObservation struct {
 
 	ID *string `json:"id,omitempty" tf:"id,omitempty"`
 
-	Keys []KeysObservation `json:"keys,omitempty" tf:"keys,omitempty"`
-
 	UserID *string `json:"userId,omitempty" tf:"user_id,omitempty"`
 }
 
@@ -48,6 +46,9 @@ type UserParameters struct {
 
 	// +kubebuilder:validation:Required
 	DisplayName *string `json:"displayName" tf:"display_name,omitempty"`
+
+	// +kubebuilder:validation:Optional
+	Tags map[string]*string `json:"tags,omitempty" tf:"tags,omitempty"`
 }
 
 // UserSpec defines the desired state of User

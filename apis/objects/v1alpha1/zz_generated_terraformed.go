@@ -32,7 +32,7 @@ func (mg *User) GetTerraformResourceType() string {
 
 // GetConnectionDetailsMapping for this User
 func (tr *User) GetConnectionDetailsMapping() map[string]string {
-	return nil
+	return map[string]string{"keys[*]": "status.atProvider.keys[*]"}
 }
 
 // GetObservation of this User
